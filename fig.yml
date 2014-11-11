@@ -1,0 +1,5 @@
+local:
+  image: golang:1.3
+  command: go run src/ngitstatus/main.go -dir=src/ngitstatus
+  volumes:
+    - .:/go/src/ngitstatus
