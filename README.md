@@ -23,13 +23,13 @@ sudo chmod +x /usr/local/bin/ngs
 ```bash
 cd my-dev-folder
 $ ngs
-===> ./my-first-project/.git
+»  my-first-project/
 ?? .editorconfig
 ?? README.md
 ?? bin/
 ?? fig.yml
 ?? main.go
-===> ./my-second-project/.git
+»  my-second-project/
 M app/index.html
 M app/styles/main.scss
 ```
