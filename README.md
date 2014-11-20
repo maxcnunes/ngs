@@ -15,8 +15,8 @@ sudo chmod +x /usr/local/bin/ngs
 
 ### Options
 
-- **`-h`**: Help message
-- **`-dir=DIRNAME`**: The base directory to start searching
+- **-h**: Help message
+- **-dir=DIRNAME**: The base directory to start searching
 
 ### Example
 
