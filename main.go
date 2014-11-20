@@ -7,12 +7,17 @@ import (
 	"os"
 	"os/exec"
 	"path"
+	"regexp"
 )
 
 const (
-	colorCyan  = "\x1b[36m"
+	colorBlue  = "\x1b[1;34m"
 	colorGreen = "\x1b[32m"
 	colorReset = "\x1b[0m"
+
+	okSymbol    = "\x1b[1;32m\xE2\x9c\x93\x1b[0m"
+	wrongSymbol = "\x1b[1;31m\xE2\x9c\x97\x1b[0m"
+	arrowSymbol = "\x1b[1;36m\xC2\xBB\x1b[0m"
 )
 
 func main() {
@@ -33,7 +38,7 @@ func main() {
 }
 
 func gitStatus(gitPath string) {
-	fmt.Println("===>"+colorCyan, gitPath, colorReset)
+	printRepositoryName(gitPath)
 
 	gitDir := "--git-dir=" + gitPath
 	workTree := "--work-tree=" + gitPath + "/.."
@@ -49,4 +54,12 @@ func gitStatus(gitPath string) {
 func isGitRepository(gitPath string) bool {
 	_, err := os.Stat(gitPath)
 	return err == nil
+}
+
+func printRepositoryName(gitPath string) {
+
+	reg := regexp.MustCompile(`^(.*)\.git$`)
+
+	name := reg.ReplaceAllString(gitPath, "$1")
+	fmt.Println(arrowSymbol, colorBlue, name, colorReset)
 }
