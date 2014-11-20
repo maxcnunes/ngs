@@ -47,8 +47,6 @@ func gitStatus(gitPath string) {
 }
 
 func isGitRepository(gitPath string) bool {
-	if _, err := os.Stat(gitPath); err != nil {
-		return false
-	}
-	return true
+	_, err := os.Stat(gitPath)
+	return err == nil
 }
